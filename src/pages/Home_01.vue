@@ -28,11 +28,17 @@
 </template>
 <script>
 import Card_01 from '@/components/Card_01.vue';
+import axios from 'axios';
 
 export default{
     name: "Home_01" // eslint-disable-next-line
     ,
     components: { Card_01 }
+    ,setup(){
+       axios.get("/api/items").then((res)=>{
+        console.log(res);
+       });
+    }
 }
 </script>
 
