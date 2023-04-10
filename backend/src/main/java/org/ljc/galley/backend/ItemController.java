@@ -11,9 +11,12 @@ public class ItemController {
     @GetMapping("/api/items")
     public List<String> getItems(){
         List<String> items = new ArrayList<>();
-        items.add("alpha");
-        items.add("beta");
-        items.add("gamma");
+        items.add("1번 상품");
+        items.add("2번 상품");
+        items.add("3번 상품");
+        items.add("4번 상품");
+        items.add("5번 상품");
+        items.add("6번 상품");
 
         return items;
     }
