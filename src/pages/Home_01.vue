@@ -17,8 +17,10 @@
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col" v-for="i in 12" :key="i">
-          <Card_01/>
+        <div class="col" v-for="(item, idx) in state.items" :key="idx">
+          <!-- <Card_01 :item="item"/> -->
+          <strong>{{ idx + 1 }}</strong>
+          <Card_01 :item="item"/>
         </div>
       </div>
 
@@ -27,17 +29,27 @@
 </div>
 </template>
 <script>
+
 import Card_01 from '@/components/Card_01.vue';
 import axios from 'axios';
+import { reactive } from 'vue';
+
 
 export default{
     name: "Home_01" // eslint-disable-next-line
     ,
     components: { Card_01 }
     ,setup(){
-       axios.get("/api/items").then((res)=>{
-        console.log(res);
-       });
+      const state = reactive({
+        items:[]
+      });
+
+      axios.get("/api/items").then(({data})=>{
+        state.items = data;
+        console.log(data);
+      });
+
+      return {state};
     }
 }
 </script>
