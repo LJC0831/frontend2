@@ -1,6 +1,5 @@
 package org.ljc.galley.backend.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.ljc.galley.backend.entity.Item;
