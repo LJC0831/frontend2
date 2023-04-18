@@ -19,6 +19,8 @@ dependencies {
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.0' //작업환경 버전에따라 처리
+	
 }
 
 tasks.named('test') {
