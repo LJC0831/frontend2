@@ -1,19 +1,17 @@
 <template>
   <Header_01/>
-  <Home_01/>
+  <RouterView/>
   <Footer_01/>
 </template>
 
 <script>
-import Header_01 from './components/Header_01.vue'; /* eslint-disable */
-import Footer_01 from './components/Footer_01.vue'; /* eslint-disable */
-import Home_01 from './pages/Home_01.vue'; /* eslint-disable */
+import Header_01 from './components/Header_01.vue';
+import Footer_01 from './components/Footer_01.vue'; 
 export default {
   name: 'App',
   components: {
       Footer_01,
-      Header_01,
-      Home_01
+      Header_01
   }
 }
 </script>
