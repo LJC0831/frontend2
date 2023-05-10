@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import store from '@/scripts/store';
 import axios from 'axios';
 import { reactive } from 'vue';
 
@@ -39,7 +40,7 @@ export default{
     /* eslint-disable */
     const submit = ()=>{ 
       axios.post("/api/account/login", state.form).then((res)=>{
-        console.log(res);
+        store.commit('setAccount',res.data);
         window.alert('로그인완료');
       })
     } 
