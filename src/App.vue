@@ -7,11 +7,19 @@
 <script>
 import Header_01 from './components/Header_01.vue';
 import Footer_01 from './components/Footer_01.vue'; 
+import store from './scripts/store';
 export default {
   name: 'App',
   components: {
       Footer_01,
       Header_01
+  },
+  setup(){
+    const id = sessionStorage.getItem("id");
+
+    if(id){
+      store.commit("setAccount",id);
+    }
   }
 }
 </script>

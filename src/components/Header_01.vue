@@ -41,6 +41,7 @@ export default {
     /* eslint-disable */
     const logout = ()=>{
       store.commit('setAccount',0);
+      sessionStorage.removeItem("id");
       router.push({path:"/"});
     }
 
