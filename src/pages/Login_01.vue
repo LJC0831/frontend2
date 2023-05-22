@@ -44,9 +44,9 @@ export default{
         store.commit('setAccount',res.data);
         sessionStorage.setItem("id",res.data);
         router.push({path:"/"});
-        windwo.alert('로그인하였습니다.');
+        window.alert('로그인하였습니다.');
       }).catch(()=>{
-        windwo.alert("로그인정보가 존재하지 않습니다.");
+        window.alert('로그인정보가 존재하지 않습니다.');
       })
     } 
 
