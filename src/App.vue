@@ -8,19 +8,35 @@
 import Header_01 from './components/Header_01.vue';
 import Footer_01 from './components/Footer_01.vue'; 
 import store from './scripts/store';
+import axios from 'axios';
+import { useRoute } from 'vue-router';
+import { watch } from 'vue';
 export default {
   name: 'App',
   components: {
       Footer_01,
       Header_01
   },
-  setup(){
-    const id = sessionStorage.getItem("id");
+  setup(){/* eslint-disable */
+    const check = ()=>{
+      axios.get("/api/account/check").then(({data})=>{
+        console.log(0); 
+        console.log(data); 
+        if (data){
+          store.commit("setAccount",data);
+        } else {
+          store.commit("setAccount",0);
+        }
+      })
+    };
 
-    if(id){
-      store.commit("setAccount",id);
-    }
+    const route = useRoute(); // 현재 url
+
+    watch(route, ()=>{// url 변경감지
+      check();
+    })
   }
+
 }
 </script>
 
